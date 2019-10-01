@@ -1,5 +1,7 @@
 package com.cognizant;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -35,5 +37,24 @@ public class Main {
             newStr+=arr.charAt(i);
         }
         return newStr;
+    }
+
+    private String findLongestWord(String[] strArray){
+        String longest = strArray[0];
+        for (String str:strArray) {
+            if (str.length()>longest.length())
+                longest=str;
+        }
+        return longest;
+    }
+
+    private String[] filterLongWords(String[] strArray, int i){
+        ArrayList<String> strings = new ArrayList<>();
+        for (String str:strArray) {
+            if (str.length()>i){
+                strings.add(str);
+            }
+        }
+        return (String[]) strings.toArray();
     }
 }
